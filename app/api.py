@@ -287,7 +287,10 @@ def rebuild_knowledge_base():
 # INITIALIZE KNOWLEDGE BASE
 # ============================================================
 
-index, chunks = load_knowledge_base()
+# Global knowledge base is no longer used.
+# Each authenticated user has a private FAISS index.
+index = None
+chunks = []
 
 
 # ============================================================
@@ -296,19 +299,10 @@ index, chunks = load_knowledge_base()
 
 @app.get("/")
 def root():
-
-    document_names = {
-        chunk["source"]
-        for chunk in chunks
-    }
-
     return {
         "status": "running",
         "application": "Enterprise RAG AI Agent",
-        "documents": len(document_names),
-        "chunks": len(chunks),
-        "vectors_stored": index.ntotal,
-        "vectors_stored": index.ntotal if index is not None else 0,
+        "storage_mode": "per-user",
     }
 
 # ============================================================
