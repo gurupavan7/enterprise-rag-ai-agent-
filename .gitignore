@@ -1,13 +1,51 @@
+# =========================
+# Environment / Secrets
+# =========================
 .env
+.env.*
+!.env.example
+
+# =========================
+# Python
+# =========================
 .venv/
+venv/
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
+
+# =========================
+# macOS
+# =========================
 .DS_Store
 
+# =========================
+# User / RAG Data
+# =========================
 data/users/
 data/users.db
+data/documents/
 
+# Generated vector / embedding data
+*.index
+*.faiss
+*.npy
+*_metadata.json
+
+# =========================
+# Frontend
+# =========================
 frontend/node_modules/
 frontend/dist/
 
-*.index
+# =========================
+# IDE
+# =========================
+.vscode/
+.idea/
+
+# =========================
+# Logs
+# =========================
+*.log
