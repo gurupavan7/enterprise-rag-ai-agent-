@@ -50,6 +50,8 @@ This helps produce answers that are more relevant and grounded in the user's own
 
 ## 🏗️ System Architecture
 
+![Enterprise RAG AI Agent Architecture](docs/rag-architecture.png)
+
 ```text
                      ┌─────────────────────┐
                      │        User         │
